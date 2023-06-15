@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Client, Databases, Account } from 'appwrite';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import{Link} from 'react-router-dom'
 const endpoint = 'https://cloud.appwrite.io/v1';
 const project = '6475ed780344f01c4b66';
 
@@ -69,7 +69,31 @@ const ExpenseForm = () => {
   };
 
   return (
-    <div className="container" style={{marginTop:'6%'}}>
+    <><div  style={{ marginTop: '5%' ,marginLeft:'-17%'}}>
+          <div className="row">
+            <div className="col-md-3 bg-primary text-light" style={{ minHeight: '100vh' }}>
+              <div className="sidebar">
+                <ul className="list-group">
+                  <li className="list-group-item">
+                    <Link to="/expenses" style={{ color: '#A9A9A9' }}>
+                      Expense Form
+                    </Link>
+                  </li>
+                  <li className="list-group-item">
+                    <Link to="/transactions" style={{ color: '#A9A9A9' }}>
+                      Transaction List
+                    </Link>
+                  </li>
+                  <li className="list-group-item">
+                    <Link to="/feedback" style={{ color: '#A9A9A9' }}>
+                      Feedback
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-md-9">
+              <div className="container" style={{marginTop:'6%'}}>
       <h2 className="mb-4" style={{justifyContent:'center',marginLeft:'40%'}}>Add Expense</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -186,6 +210,11 @@ const ExpenseForm = () => {
         </button>
       </form>
     </div>
+            </div>
+          </div>
+        </div>
+    
+    </>
   );
 };
 

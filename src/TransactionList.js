@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import{Link} from 'react-router-dom'
 import { Client, Databases } from 'appwrite';
 import { Pie } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -90,7 +91,34 @@ const TransactionList = () => {
   }, []);
 
   return (
-    <div className="container">
+    
+      
+  
+  <div  style={{ marginTop: '5%' ,marginLeft:'-17%'}}>
+          <div className="row">
+            <div className="col-md-3 bg-primary text-light" style={{ minHeight: '100vh' }}>
+              <div className="sidebar">
+                <ul className="list-group">
+                  <li className="list-group-item">
+                    <Link to="/expenses" style={{ color: '#A9A9A9' }}>
+                      Expense Form
+                    </Link>
+                  </li>
+                  <li className="list-group-item">
+                    <Link to="/transactions" style={{ color: '#A9A9A9' }}>
+                      Transaction List
+                    </Link>
+                  </li>
+                  <li className="list-group-item">
+                    <Link to="/feedback" style={{ color: '#A9A9A9' }}>
+                      Feedback
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className='col-md-9'>
+      <div className="container">
       <h2 className="my-4">Transaction List</h2>
       <div className="d-flex justify-content-center mt-4">
         <div className="mx-2" style={{ width: '40%' }}>
@@ -142,6 +170,17 @@ const TransactionList = () => {
         <p className="mt-4">No transactions found.</p>
       )}
     </div>
+    </div>
+          </div>
+        </div>
+  
+
+    
+    
+    
+    
+  
+  
   );
 };
 

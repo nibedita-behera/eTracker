@@ -38,31 +38,9 @@ const App = () => {
           </div>
         </nav>
 
-        <div className="container-fluid" style={{ marginTop: '80px' }}>
-          <div className="row">
-            <div className="col-md-3 bg-primary text-light" style={{ minHeight: '100vh' }}>
-              <div className="sidebar">
-                <ul className="list-group">
-                  <li className="list-group-item">
-                    <Link to="/expenses" style={{ color: '#A9A9A9' }}>
-                      Expense Form
-                    </Link>
-                  </li>
-                  <li className="list-group-item">
-                    <Link to="/transactions" style={{ color: '#A9A9A9' }}>
-                      Transaction List
-                    </Link>
-                  </li>
-                  <li className="list-group-item">
-                    <Link to="/feedback" style={{ color: '#A9A9A9' }}>
-                      Feedback
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-md-9">
-              <div className="container mt-4">
+        
+      </div>
+      <div className="container mt-4">
                 <Routes>
                   <Route path="/dashboard/:userId" element={<Dashboard />} />
                   <Route path="/login" element={<LoginForm />} />
@@ -72,10 +50,6 @@ const App = () => {
                   <Route path="/transactions" element={<TransactionList />} />
                 </Routes>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </Router>
   );
 };
