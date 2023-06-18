@@ -20,9 +20,10 @@ promise.then(function (response) {
     console.log(error); // Failure
 });
   return (
-    <div>
-      <button onClickCapture={Logout}>logout user</button>
-      <h1>Logout Successful!!</h1>
+    <div  style={{justifyContent:'center' }} >
+      <button onClickCapture={Logout}
+      style={{justifyContent:'center', color:'-moz-initial', fontFamily:'cursive'}}>Logged out</button>
+      <h1>Thank you for using!!</h1>
       
     </div>
   );

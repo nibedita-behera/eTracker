@@ -33,9 +33,9 @@ const Register = () => {
   };
 
   return (
-    <div className="container" style={{ marginTop: '10%', backgroundColor: '#eec0c8',  minHeight: '400px' }}>
-      <div className="row justify-content-center">
-        <div className="col-lg-6 p-4 rounded shadow">
+    <div className="container" style={{ marginTop: '10%', backgroundColor: '#00308F',  minHeight: '500px' }}>
+      <div className="row justify-content-center" >
+        <div className="col-lg-6 p-4 rounded shadow" style={{backgroundColor: '#eec0c8',marginTop:'4%'}}>
           <h2 className="text-center">Register</h2>
           {message && <p className="text-center">{message}</p>}
           <form onSubmit={handleRegister}>

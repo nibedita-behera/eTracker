@@ -5,51 +5,51 @@ import RegisterForm from './components/Auth/RegisterForm';
 import Dashboard from './pages/Dashboard';
 import ExpenseForm from './ExpenseForm';
 import TransactionList from './TransactionList';
-import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logout from './components/Auth/LogoutFrom';
+import Feedback from './components/Auth/Feedback';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const App = () => {
   return (
     <Router>
-      <div className="bg-light" style={{ color: '#1d1160', fontFamily: 'Verdana, sans-serif', fontWeight: 'bolder' }}>
-        <nav className="navbar navbar-expand-lg bg-primary fixed-top">
-          <div className="container">
-            <Link className="navbar-brand" to="/dashboard">
-              Dashboard
-            </Link>
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/login" style={{ color: '#ffffff' }}>
+      <div className="bg-light" style={{ color: '#FF00FF', fontFamily: 'Verdana, sans-serif', fontWeight: 'bolder', }}>
+        <Navbar navbar-light  expand="lg" className="custom-navbar" style={{backgroundColor:'#FF00FF'}}>
+          <div className="container" style={{height:'16px'}}>
+            <Navbar.Brand as={Link} to="/dashboard">
+              E-Tracker
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarNav" />
+            <Navbar.Collapse id="navbarNav">
+              <Nav className="ml-auto">
+                <Nav.Link as={Link} to="/login" className="nav-link" style={{color:'#ffffff'}}>
                   Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/" style={{ color: '#ffffff' }}>
+                </Nav.Link>
+                <Nav.Link as={Link} to="/" className="nav-link" style={{color:'#ffffff'}}>
                   Register
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/logout" style={{ color: '#ffffff' }}>
+                </Nav.Link>
+                <Nav.Link as={Link} to="/logout" className="nav-link" style={{color:'#ffffff'}}>
                   Logout
-                </Link>
-              </li>
-            </ul>
+                </Nav.Link>
+                <Nav.Link as={Link} to="/feedback" className="nav-link" style={{color:'#ffffff'}}>
+                  Share
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </div>
-        </nav>
-
-        
+        </Navbar>
       </div>
       <div className="container mt-4">
-                <Routes>
-                  <Route path="/dashboard/:userId" element={<Dashboard />} />
-                  <Route path="/login" element={<LoginForm />} />
-                  <Route path="/logout" element={<Logout />} />
-                  <Route path="/" element={<RegisterForm />} />
-                  <Route path="/expenses" element={<ExpenseForm />} />
-                  <Route path="/transactions" element={<TransactionList />} />
-                </Routes>
-              </div>
+        <Routes>
+          <Route path="/dashboard/:userId" element={<Dashboard />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/" element={<RegisterForm />} />
+          <Route path="/expenses" element={<ExpenseForm />} />
+          <Route path="/transactions" element={<TransactionList />} />
+          <Route path="/feedback" element={<Feedback />} />
+        </Routes>
+      </div>
     </Router>
   );
 };

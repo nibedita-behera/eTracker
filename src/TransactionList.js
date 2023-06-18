@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import{Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { Client, Databases } from 'appwrite';
 import { Pie } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
@@ -91,96 +99,92 @@ const TransactionList = () => {
   }, []);
 
   return (
-    
-      
-  
-  <div  style={{ marginTop: '5%' ,marginLeft:'-17%'}}>
-          <div className="row">
-            <div className="col-md-3 bg-primary text-light" style={{ minHeight: '100vh' }}>
-              <div className="sidebar">
-                <ul className="list-group">
-                  <li className="list-group-item">
-                    <Link to="/expenses" style={{ color: '#A9A9A9' }}>
-                      Expense Form
-                    </Link>
-                  </li>
-                  <li className="list-group-item">
-                    <Link to="/transactions" style={{ color: '#A9A9A9' }}>
-                      Transaction List
-                    </Link>
-                  </li>
-                  <li className="list-group-item">
-                    <Link to="/feedback" style={{ color: '#A9A9A9' }}>
-                      Feedback
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className='col-md-9'>
-      <div className="container">
-      <h2 className="my-4">Transaction List</h2>
-      <div className="d-flex justify-content-center mt-4">
-        <div className="mx-2" style={{ width: '40%' }}>
-          <h3>Payment Mode Distribution</h3>
-          {transactions.length > 0 && (
-            <Pie data={pieChartDataPaymentMode} options={chartOptions} />
-          )}
-        </div>
-        <div className="mx-2" style={{ width: '40%' }}>
-          <h3>App Name Distribution</h3>
-          {transactions.length > 0 && (
-            <Pie data={pieChartDataAppName} options={chartOptions} />
-          )}
-        </div>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="userEmail">Enter your email:</label>
-          <input
-            type="email"
-            id="userEmail"
-            className="form-control"
-            value={userEmail}
-            onChange={(e) => setUserEmail(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Fetch Transactions</button>
-      </form>
-
-      {error && <p className="alert alert-danger mt-4">{error}</p>}
-      {transactions.length > 0 ? (
-        <div>
-          <h3 className="mt-4">Transaction Details</h3>
-          <ul className="list-group mt-2">
-            {transactions.map((transaction) => (
-              <li key={transaction.$id} className="list-group-item">
-                <strong>Amount:</strong> {transaction.amount}<br />
-                <strong>Date:</strong> {transaction.date}<br />
-                <strong>Payment Mode:</strong> {transaction.PaymentMode}<br />
-                <strong>App Name:</strong> {transaction.appName}<br />
-                <strong>Currency:</strong> {transaction.currency}
+    <div className="container-fluid1" style={{ marginLeft: '-19%', marginTop: '-2%' }}>
+      <div className="row">
+        <div className="col-lg-3 navbar-light text-light d-none d-lg-block" style={{ minHeight: '100vh', backgroundColor:'#FF00FF' }}>
+          <div className="sidebar">
+            <ul className="list-group">
+              <li className="list-group-item">
+                <Link to="/expenses" style={{ color: '#A9A9A9' }}>
+                  Expense Form
+                </Link>
               </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <p className="mt-4">No transactions found.</p>
-      )}
-    </div>
-    </div>
+              <li className="list-group-item">
+                <Link to="/transactions" style={{ color: '#A9A9A9' }}>
+                  Transaction List
+                </Link>
+              </li>
+              <li className="list-group-item">
+                <Link to="/feedback" style={{ color: '#A9A9A9' }}>
+                  Share Experience
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-  
+        <div className="col-md-9">
+          <div className="container">
+            <h2 className="my-4">Transaction List</h2>
+            <div className="d-flex justify-content-center mt-4">
+              <div className="mx-2" style={{ width: '40%',marginRight:'4%' }}>
+                <h3 >Payment Mode Chart</h3>
+                {transactions.length > 0 && <Pie data={pieChartDataPaymentMode} options={chartOptions} />}
+              </div>
+              <div className="mx-2" style={{ width: '40%' }}>
+                <h3 >App Name Distribution</h3>
+                {transactions.length > 0 && <Pie data={pieChartDataAppName} options={chartOptions} />}
+              </div>
+            </div>
 
-    
-    
-    
-    
-  
-  
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="userEmail">Enter your email:</label>
+                <input
+                  type="email"
+                  id="userEmail"
+                  className="form-control"
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Fetch Transactions
+              </button>
+              <button  className="btn btn-primary" style={{ marginLeft:'5%',color:'#ffffff' }}>
+                      <Link to="/expenses" style={{color:'whitesmoke'}} >
+                       Add a new expense
+                  </Link>
+                  </button>
+            </form>
+
+            {error && <p className="alert alert-danger mt-4">{error}</p>}
+            {transactions.length > 0 ? (
+              <div>
+                <h3 className="mt-4">Transaction Details</h3>
+                <ul className="list-group mt-2">
+                  {transactions.map((transaction) => (
+                    <li key={transaction.$id} className="list-group-item">
+                      <strong>Amount:</strong> {transaction.amount}
+                      <br />
+                      <strong>Date:</strong> {transaction.date}
+                      <br />
+                      <strong>Payment Mode:</strong> {transaction.PaymentMode}
+                      <br />
+                      <strong>App Name:</strong> {transaction.appName}
+                      <br />
+                      <strong>Currency:</strong> {transaction.currency}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <p className="mt-4">No transactions found.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

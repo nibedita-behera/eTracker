@@ -1,0 +1,43 @@
+/* Custom LoginForm Styles */
+.custom-login-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2874f0;
+}
+
+.custom-login-form .form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.custom-login-form .form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+.custom-login-form .btn-primary {
+    background-color: #2874f0;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.custom-login-form .btn-primary:hover {
+    background-color: #1e62d0;
+}
+
+.custom-login-form .message {
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+}

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { Client, Account } from 'appwrite';
 
 const endpoint = 'https://cloud.appwrite.io/v1';
@@ -41,11 +40,11 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="container" style={{ marginTop: '10%', backgroundColor: '#eec0c8', minHeight: '400px' }}>
-      <div className="row justify-content-center">
-        <div className="col-lg-6 p-4 rounded shadow" style={{ backgroundColor: '#eec0c8' }}>
+    <div className="container" style={{ marginTop: '10%', backgroundColor: '#00308F', minHeight: '400px',minWidth:'200px' }}>
+      <div className="row justify-content-center" >
+        <div className="col-lg-6 p-4 rounded shadow custom-login-form" style={{backgroundColor: '#eec0c8',marginTop:'4%'}} >
           <h2 className="text-center">Login</h2>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleLogin} >
             <div className="mb-3">
               <label htmlFor="email" className="form-label fw-bold">
                 Email:
@@ -53,7 +52,6 @@ const LoginForm = () => {
               <input
                 type="email"
                 className="form-control fw-bold"
-                style={{ borderBlockStyle: 'double', borderBlockColor: 'ActiveBorder' }}
                 id="email"
                 value={user.email}
                 onChange={(e) => setUser({ ...user, email: e.target.value })}
@@ -67,7 +65,6 @@ const LoginForm = () => {
               <input
                 type="password"
                 className="form-control fw-bold"
-                style={{ borderBlockStyle: 'double', borderBlockColor: 'ActiveBorder' }}
                 id="password"
                 value={user.password}
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
@@ -82,7 +79,7 @@ const LoginForm = () => {
           </form>
           {message && (
             <div className="text-center mt-3">
-              <p>{message}</p>
+              <p className="message">{message}</p>
             </div>
           )}
         </div>
